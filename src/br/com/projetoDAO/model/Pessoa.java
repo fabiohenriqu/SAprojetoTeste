@@ -6,11 +6,18 @@ public class Pessoa {
     private String nome;
     private String profissao;
 
-    public Pessoa(String nome, String profissao) {
-
+    public Pessoa(int id, String nome, String profissao) {
+        this.id = id;
         this.nome = nome;
         this.profissao = profissao;
     }
+    public Pessoa(String nome, String profissao) {
+        
+        this.nome = nome;
+        this.profissao = profissao;
+    }
+  
+     
 
     public int getId() {
         return id;

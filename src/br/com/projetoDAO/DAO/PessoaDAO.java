@@ -37,9 +37,6 @@ public class PessoaDAO {
         }
 
     }
-    
-    
-    
 
     public boolean inserir(Pessoa p) {
 
@@ -70,7 +67,7 @@ public class PessoaDAO {
 
     public boolean atualizar(Pessoa p) {
 
-        String sql = "update pessoa set nome = ?,profissao=? where id = 2";
+        String sql = "update pessoa set nome = ?,profissao=? where id = ?";
         con = Conexao.conectar();
 
         try {
@@ -79,6 +76,7 @@ public class PessoaDAO {
 
             pst.setString(1, p.getNome());
             pst.setString(2, p.getProfissao());
+            pst.setInt(3, p.getId());
 
             int s = pst.executeUpdate();
 
@@ -96,16 +94,17 @@ public class PessoaDAO {
     }
 
     public boolean delete() {
-        String Sql = "DELETE from pessoa where id = 8";
+        String Sql = "DELETE from pessoa where id = ?";
         con = Conexao.conectar();
 
         try {
             pst = con.prepareStatement(Sql);
-             pst.executeUpdate();
-
-         
-                System.out.println("Dados deletado com sucesso");
+            pst.setInt(1, 6);
             
+           
+            pst.executeUpdate();
+
+            System.out.println("Dados deletado com sucesso");
 
             return true;
         } catch (Exception e) {
@@ -113,10 +112,10 @@ public class PessoaDAO {
             return false;
         }
     }
-    
+
     public boolean consultaID() {
 
-        String sql = "Select * from pessoa where id = 16 ";
+        String sql = "Select * frompessoa where id = ? ";
 
         con = Conexao.conectar();
 
@@ -139,6 +138,5 @@ public class PessoaDAO {
         }
 
     }
-    
 
 }

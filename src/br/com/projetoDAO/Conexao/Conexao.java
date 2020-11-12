@@ -13,7 +13,7 @@ public class Conexao {
 
     public static Connection conectar() {
         Connection con = null;
-        final String URL = "jdbc:mysql://localhost:3306/projetoDAO";
+        final String URL = "jdbc:mysql://localhost:3306/projetodao";
         final String USE = "root";
         final String PASS = "";
 
